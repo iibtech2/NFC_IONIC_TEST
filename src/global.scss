@@ -1,0 +1,64 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.my-custom-class{
+    .alert-button{
+        width: 100%;
+        text-align: center;
+        background-color: #2c58ad;
+        color: white;
+        border-radius: 8px;
+        .alert-button-inner{
+            display: block;
+        }
+    }
+}
+// Toaster Class
+.successToast{
+    --background: #008000d6 !important;
+    --border-radius: 30px !important;
+    --box-shadow: 0px 0px 20px 1px var(--ion-color-success) !important;
+    --height: 40px;
+    --width: 80%;
+    --button-color: var(--ion-color-light);
+  }
+  .failedToast{
+    --background: #800400d6 !important;
+    --border-radius: 30px !important;
+    --box-shadow: 0px 0px 20px 1px var(--ion-color-danger) !important;
+    // text-align: -webkit-center !important;
+    --height: 40px;
+    --width: 80%;
+    --button-color: var(--ion-color-light);
+  }
+  .toast-wrapper.toast-bottom{
+      bottom: 30px !important;
+  }
+
+  .swiper-scrollbar{
+      display: none;
+  }

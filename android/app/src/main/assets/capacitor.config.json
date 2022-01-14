@@ -1,0 +1,6 @@
+{
+	"appId": "com.ziainfo.nfcwithionic",
+	"appName": "IonNfc",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

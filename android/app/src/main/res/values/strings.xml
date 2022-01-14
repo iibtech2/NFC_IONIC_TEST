@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IonNfc</string>
+    <string name="title_activity_main">IonNfc</string>
+    <string name="package_name">com.ziainfo.nfcwithionic</string>
+    <string name="custom_url_scheme">com.ziainfo.nfcwithionic</string>
+</resources>

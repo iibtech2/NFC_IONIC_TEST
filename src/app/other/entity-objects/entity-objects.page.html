@@ -1,98 +1,57 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>All Entity Objects</ion-title>
-  </ion-toolbar>
-  <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment">
-    <ion-segment-button value="0">Object</ion-segment-button>
-    <ion-segment-button value="1">Type</ion-segment-button>
-  </ion-segment>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">All Entity Objects</ion-title>
+        <ion-buttons slot="end">
+            <ion-back-button>
+            </ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment">
+        <ion-segment-button value="0">Object</ion-segment-button>
+        <ion-segment-button value="1">Type</ion-segment-button>
+    </ion-segment>
 </ion-header>
 
 <ion-content>
-  <ion-slides
-    style="height: 100%"
-    #slides
-    (ionSlideDidChange)="slideChanged()"
-    scrollbar="true"
-  >
-    <ion-slide>
-      <ng-container>
-        <ion-list class="all-list">
-          <ion-item>
-            <ion-avatar>
-              <img src="../../assets/icon/serialnumber.svg" />
-            </ion-avatar>
-            <ion-label>
-              <h2><strong>Serial Number</strong></h2>
-              <p>34567890-=</p>
-            </ion-label>
-          </ion-item>
+    <ion-slides style="height: 100%" #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+        <ion-slide>
+            <ng-container>
+                <ion-list class="all-list">
+                    <ion-item>
+                        <ion-label>
+                            <h3>
+                                Name
+                            </h3>
+                            <p>
+                                type
+                            </p>
 
-          <ion-item>
-            <ion-avatar>
-              <img src="../../assets/icon/size.svg" />
-            </ion-avatar>
-            <ion-label>
-              <h2><strong>Size</strong></h2>
-              <p>34567890-=</p>
-            </ion-label>
+                        </ion-label>
 
-            <ion-button fill="clear">
-              <ion-icon name="ellipsis-vertical"></ion-icon>
-            </ion-button>
-          </ion-item>
+                    </ion-item>
 
-          <ion-item>
-            <ion-avatar>
-              <img src="../../assets/icon/writeable.svg" />
-            </ion-avatar>
-            <ion-label>
-              <h2><strong>Writable</strong></h2>
-              <p>34567890-=</p>
-            </ion-label>
-          </ion-item>
 
-          <ion-item>
-            <ion-avatar>
-              <img src="../../assets/icon/lock.svg" />
-            </ion-avatar>
-            <ion-label>
-              <h2><strong>Can be made Read-Only</strong></h2>
-              <p>34567890</p>
-            </ion-label>
-          </ion-item>
+                </ion-list>
+            </ng-container>
+        </ion-slide>
+        <ion-slide>
+            <ion-list class="all-list">
+                <ion-item *ngFor="let t of allTypes">
+                    <ion-label>
+                        <h2><strong>{{t.typeName}}</strong></h2>
+                    </ion-label>
+                    <ion-button (click)="deleteType(t)">
+                        <ion-icon name="trash"></ion-icon>
+                    </ion-button>
+                </ion-item>
+            </ion-list>
 
-          <ion-item>
-            <ion-avatar>
-              <img src="../../assets/icon/record.svg" />
-            </ion-avatar>
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-fab-button (click)="addItem()">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
 
-            <ion-label>
-              <h2><strong>Rocord</strong></h2>
-              <p>34567890-=</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ng-container>
-    </ion-slide>
-    <ion-slide>
-      <ion-list class="all-list">
-        <ion-item *ngFor="let t of allTypes">
-          <ion-label>
-            <h2><strong>{{t.typeName}}</strong></h2>
-          </ion-label>
-          <ion-button (click)="deleteType(t)">
-            <ion-icon name="trash"></ion-icon>
-          </ion-button>
-        </ion-item>
-      </ion-list>
-
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button (click)="addItem()">
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-
-    </ion-slide>
-  </ion-slides>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

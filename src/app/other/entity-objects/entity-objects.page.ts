@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, AlertController } from '@ionic/angular';
-import { TypeService } from 'src/app/service/type.service';
+import { TypeService } from '../../service/type.service';
+//import { TypeService } from 'src/app/service/type.service';
 
 @Component({
   selector: 'app-entity-objects',

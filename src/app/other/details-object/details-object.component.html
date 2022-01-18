@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">All Entity Objects</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModel()">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-label position="floating">Entity Name</ion-label>
+            <ion-input [(ngModel)]="frmEntity.eName" name="e_name" required minlength="2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Entity Type</ion-label>
+            <ion-select name="e_type" required [(ngModel)]="frmEntity.eType">
+                <ion-select-option [value]="i" *ngFor="let e of allTypes;let i = index"> {{e.typeName}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-button type="submit" fill="outline" expand="block" [disabled]="!form.valid">Save</ion-button>
+    </form>
+</ion-content>

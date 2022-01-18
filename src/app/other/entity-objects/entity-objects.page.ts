@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, AlertController } from '@ionic/angular';
+import { IonSlides, AlertController, ModalController } from '@ionic/angular';
+import { EntityService } from 'src/app/service/entity.service';
 import { TypeService } from '../../service/type.service';
+import { DetailsObjectComponent } from '../details-object/details-object.component';
 //import { TypeService } from 'src/app/service/type.service';
 
 @Component({
@@ -12,9 +14,12 @@ export class EntityObjectsPage implements OnInit {
   @ViewChild('slides', { static: true }) slider: IonSlides;
   segment = 0;
   allTypes: any = [];
+  allEntities:any = [];
   constructor(
+    private entityService: EntityService,
     private typeService: TypeService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private mdlCtrl: ModalController
   ) { }
 
   async segmentChanged() {
@@ -31,15 +36,12 @@ export class EntityObjectsPage implements OnInit {
   }
   ionViewWillEnter() {
     this.allTypes = this.typeService.readAll();
-  }
+    this.allEntities = this.entityService.readAll();
+  } 
 
-  addItem() {
-    this.presentAlertConfirm()
-  }
-
-  async presentAlertConfirm() {
+  async addType() {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class-2',
+      cssClass: 'add-type-alert',
       header: 'Add New type!',
       // message: 'Message <strong>text</strong>!!!',
       inputs: [
@@ -85,6 +87,26 @@ export class EntityObjectsPage implements OnInit {
     this.allTypes = this.typeService.readAll();
       //deleteType
   }
+
+  addItem(){
+    this.mdlCtrl.create({
+      component: DetailsObjectComponent
+    }).then(modelel => {
+      modelel.present();
+      return modelel.onDidDismiss();
+    }).then(resultdata => {
+      this.ionViewWillEnter() 
+    });
+  }
+  deleteItem(t){
+    if(t){
+      this.entityService.deleteType(t);
+    }
+    console.log(t);
+    this.allEntities = this.entityService.readAll();
+  }
+
+
 }
 
 

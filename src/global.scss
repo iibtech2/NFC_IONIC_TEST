@@ -62,3 +62,35 @@
   .swiper-scrollbar{
       display: none;
   }
+
+  .add-type-alert{
+      .alert-input-group{
+          padding: 3px;
+      }
+      .alert-head{
+          text-align: center;
+          padding: 10px;
+          h2{
+              color: var(--ion-color-primary);
+          }
+      }
+      #confirm-button{
+        width: 45%;
+        background: green;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        span{
+            justify-content: center;
+        }
+      }
+      #cancel-button{
+        color: red;
+        width: 45%;
+        border: 1px solid red;
+        border-radius: 10px;
+        span{
+            justify-content: center;
+        }
+      }
+  }

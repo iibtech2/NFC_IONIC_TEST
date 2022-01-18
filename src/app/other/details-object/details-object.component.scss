@@ -1,0 +1,31 @@
+// ion-item {
+//     width: 90%;
+//     margin-left: 19px;
+// }
+// ion-button {
+//     width: 70%;
+//     margin-left: 20px;
+// }
+ion-item {
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-top: 10px;
+    --highlight-background: none !important;
+}
+ion-input:focus{
+    border-bottom-color: transparent;
+}
+ion-input::before
+{
+    border-bottom-color: transparent;
+
+
+}
+ion-input:host(.item-interactive){
+        --border-width: 0 0 1px 0; 
+        --show-full-highlight: 1;
+}
+ion-input.ion-touched{
+    border: 0px !important;
+}

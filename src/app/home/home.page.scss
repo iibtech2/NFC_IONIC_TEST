@@ -1,31 +1,35 @@
 .all-list {
-  width: 100%;
-  height: 100%;
-  ion-item {
-    ion-button {
-      position: absolute;
-      right: 2px;
-      top: 3px;
+    width: 100%;
+    height: 100%;
+    ion-item {
+        ion-button {
+            position: absolute;
+            right: 2px;
+            top: 3px;
+        }
+        ion-label {
+            padding-left: 10px;
+        }
     }
-    ion-label {
-      padding-left: 10px;
-    }
-  }
 }
 
 ion-segment {
-  background: var(--ion-color-primary);
-  border: none;
-  margin-top: -3px;
-  ion-segment-button {
-    color: white;
-  }
-
-  .segment-button-checked {
-    border-bottom: 4px solid #ff9800;
-  }
+    background: var(--ion-color-primary);
+    border: none;
+    margin-top: -3px;
+    ion-segment-button {
+        color: white;
+    }
+    .segment-button-checked {
+        border-bottom: 4px solid #ff9800;
+    }
 }
 
 ion-slide {
-  height: calc(100vh - 140px);
+    height: calc(100vh - 140px);
+}
+
+ion-list{
+    height: 100%;
+    width: 100%;
 }

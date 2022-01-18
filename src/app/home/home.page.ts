@@ -1,7 +1,8 @@
 import { ToastServiceService } from './../service/toast-service.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertController, IonSlides, PopoverController } from '@ionic/angular';
+import { AlertController, IonSlides, ModalController, PopoverController } from '@ionic/angular';
 import { MorePopoverComponent } from '../other/more-popover/more-popover.component';
+import { SelectObjectComponent } from '../other/select-object/select-object.component';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,17 @@ import { MorePopoverComponent } from '../other/more-popover/more-popover.compone
 })
 export class HomePage implements OnInit {
 
+  
   @ViewChild('slides', { static: true }) slider: IonSlides;
   segment = 0;
+
+  isWritingMode = false;
+  writingObject:any;
   constructor(
     private popoverController: PopoverController,
     private alertController: AlertController,
-    private toast:ToastServiceService
+    private toast:ToastServiceService,
+    private mdl:ModalController
   ) { }
 
   ngOnInit() {
@@ -63,4 +69,24 @@ export class HomePage implements OnInit {
   async slideChanged() {
     this.segment = await this.slider.getActiveIndex();
   }
+
+  selectData(){
+    this.mdl.create({
+      component: SelectObjectComponent
+    }).then(modelel => {
+      modelel.present();
+      return modelel.onDidDismiss();
+    }).then(resultdata => {
+      if(resultdata.role == 'ok'){
+        this.isWritingMode = true;
+        this.writingObject = resultdata.data
+      }
+    });
+  }
+
+  cancelWrite(){
+    this.isWritingMode = false;
+        this.writingObject = null;
+  }
 }
+//

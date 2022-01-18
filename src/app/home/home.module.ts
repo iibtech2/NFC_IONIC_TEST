@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { MorePopoverComponent } from '../other/more-popover/more-popover.component';
 import { AboutUsComponent } from '../comp/about-us/about-us.component';
+import { SelectObjectComponent } from '../other/select-object/select-object.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { AboutUsComponent } from '../comp/about-us/about-us.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,MorePopoverComponent,AboutUsComponent],
-  entryComponents: [MorePopoverComponent,AboutUsComponent]
+  declarations: [HomePage,MorePopoverComponent,AboutUsComponent,SelectObjectComponent],
+  entryComponents: [MorePopoverComponent,AboutUsComponent,SelectObjectComponent]
 })
 export class HomePageModule {}

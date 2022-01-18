@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EntityObjectsPageRoutingModule } from './entity-objects-routing.module';
 
 import { EntityObjectsPage } from './entity-objects.page';
+import { DetailsObjectComponent } from '../details-object/details-object.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { EntityObjectsPage } from './entity-objects.page';
     IonicModule,
     EntityObjectsPageRoutingModule
   ],
-  declarations: [EntityObjectsPage]
+  declarations: [EntityObjectsPage,DetailsObjectComponent],
+  entryComponents: [DetailsObjectComponent]
 })
 export class EntityObjectsPageModule {}

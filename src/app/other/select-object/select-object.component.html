@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">All Entity Objects</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModel()">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-radio-group (ionChange)="selectOption()">
+            <ion-item *ngFor="let t of allObjects;let i=index">
+                <ion-label>
+                    <h2>
+                        <strong>{{ t.objName }}</strong>
+                    </h2>
+                    <p>
+                        <strong>{{ t.objType.typeName }}</strong>
+                    </p>
+                </ion-label>
+
+                <ion-radio [value]="i"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+</ion-content>

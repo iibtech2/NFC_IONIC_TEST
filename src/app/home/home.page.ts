@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, IonSlides, ModalController, PopoverController } from '@ionic/angular';
 import { MorePopoverComponent } from '../other/more-popover/more-popover.component';
 import { SelectObjectComponent } from '../other/select-object/select-object.component';
+import { AlertOpenComponent } from '../other/alert-open/alert-open.component';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +12,17 @@ import { SelectObjectComponent } from '../other/select-object/select-object.comp
 })
 export class HomePage implements OnInit {
 
-  
+
   @ViewChild('slides', { static: true }) slider: IonSlides;
   segment = 0;
 
   isWritingMode = false;
-  writingObject:any;
+  writingObject: any;
   constructor(
     private popoverController: PopoverController,
     private alertController: AlertController,
-    private toast:ToastServiceService,
-    private mdl:ModalController
+    private toast: ToastServiceService,
+    private mdl: ModalController
   ) { }
 
   ngOnInit() {
@@ -53,11 +54,11 @@ export class HomePage implements OnInit {
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
   }
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     // this.presentAlert();
   }
 
-  copyText(){
+  copyText() {
     this.toast.SuccessToast('Copy Successfully', 2000);
   }
 
@@ -70,23 +71,39 @@ export class HomePage implements OnInit {
     this.segment = await this.slider.getActiveIndex();
   }
 
-  selectData(){
+  selectData() {
     this.mdl.create({
       component: SelectObjectComponent
     }).then(modelel => {
       modelel.present();
       return modelel.onDidDismiss();
     }).then(resultdata => {
-      if(resultdata.role == 'ok'){
+      if (resultdata.role == 'ok') {
         this.isWritingMode = true;
         this.writingObject = resultdata.data
+        this.selectOption();
       }
     });
   }
 
-  cancelWrite(){
+  selectOption() {
+    this.mdl.create({
+      component: AlertOpenComponent,
+      cssClass: 'alert_show',
+      backdropDismiss: false
+    }).then(modelel => {
+      modelel.present();
+      return modelel.onDidDismiss();
+    }).then(resultdata => {
+
+        this.cancelWrite();
+
+    });
+  }
+
+  cancelWrite() {
     this.isWritingMode = false;
-        this.writingObject = null;
+    this.writingObject = null;
   }
 }
 //

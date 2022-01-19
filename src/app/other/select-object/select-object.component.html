@@ -11,7 +11,7 @@
 
 <ion-content>
     <ion-list>
-        <ion-radio-group (ionChange)="selectOption()">
+        <ion-radio-group [(ngModel)]="selectOptionValue" (ionChange)="selectOption()">
             <ion-item *ngFor="let t of allObjects;let i=index">
                 <ion-label>
                     <h2>

@@ -1,6 +1,7 @@
 import { EntityService } from './../../service/entity.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { AlertOpenComponent } from '../alert-open/alert-open.component';
 
 @Component({
   selector: 'app-select-object',
@@ -10,11 +11,11 @@ import { AlertController, ModalController } from '@ionic/angular';
 export class SelectObjectComponent implements OnInit {
 
 
+  selectOptionValue:any = null
   allObjects:any = [];
   constructor(
     private entityService: EntityService,
-    private alertController: AlertController,
-    public mdl:ModalController
+    private mdl: ModalController,
   ) { }
 
   ngOnInit() {}
@@ -23,34 +24,12 @@ export class SelectObjectComponent implements OnInit {
     this.mdl.dismiss();
   }
 
- 
-    async selectOption() {
-      const alert = await this.alertController.create({
-        cssClass: 'alertheader',
-        header: 'Confirm!',
-        message: 'Message <strong>text</strong>!!!',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            cssClass: 'secondary',
-            id: 'cancel-button',
-            handler: (blah) => {
-              console.log('Confirm Cancel: blah');
-            }
-          }, {
-            text: 'Okay',
-            id: 'confirm-button',
-            handler: () => {
-              console.log('Confirm Okay');
-            }
-          }
-        ]
-      });
-  
-      await alert.present();
-    }
+  selectOption(){
+    this.mdl.dismiss(this.allObjects[this.selectOptionValue],'ok')
+  }
+
+
   ionViewWillEnter() {
     this.allObjects = this.entityService.readAll();
-  } 
+  }
 }

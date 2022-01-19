@@ -89,6 +89,9 @@ export class HomePage implements OnInit {
   selectOption() {
     this.mdl.create({
       component: AlertOpenComponent,
+      componentProps: {
+        alertType : '2' //For Write
+      },
       cssClass: 'alert_show',
       backdropDismiss: false
     }).then(modelel => {

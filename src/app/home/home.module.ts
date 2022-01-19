@@ -10,6 +10,7 @@ import { HomePage } from './home.page';
 import { MorePopoverComponent } from '../other/more-popover/more-popover.component';
 import { AboutUsComponent } from '../comp/about-us/about-us.component';
 import { SelectObjectComponent } from '../other/select-object/select-object.component';
+import { AlertOpenComponent } from '../other/alert-open/alert-open.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { SelectObjectComponent } from '../other/select-object/select-object.comp
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,MorePopoverComponent,AboutUsComponent,SelectObjectComponent],
-  entryComponents: [MorePopoverComponent,AboutUsComponent,SelectObjectComponent]
+  declarations: [HomePage,MorePopoverComponent,AboutUsComponent,SelectObjectComponent,AlertOpenComponent],
+  entryComponents: [MorePopoverComponent,AboutUsComponent,SelectObjectComponent,AlertOpenComponent]
 })
 export class HomePageModule {}

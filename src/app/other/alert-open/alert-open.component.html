@@ -1,20 +1,13 @@
-<ion-header>
-    <ion-toolbar color="primary">
+<ion-card>
+    <ion-card-header color="primary">
+        <ion-card-title color="primary" class="ion-text-center">{{headerString}}</ion-card-title>
+    </ion-card-header>
 
-        <ion-title>Wait For NFC Tag</ion-title>
-        <ion-buttons slot="end">
-            <ion-button (click)="closeModel()">
-                <ion-icon name="close"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-</ion-header>
-<ion-content>
+    <ion-card-content *ngIf="alertType == '1' || alertType == '2'">
+        <ion-img src="../../../assets/icon/loding.gif"></ion-img>
 
-    <ion-img src="../../../assets/icon/loding.gif"></ion-img>
-</ion-content>
-<ion-footer>
-    <ion-toolbar>
-        <ion-button expand="block">Cancel</ion-button>
-    </ion-toolbar>
-</ion-footer>
+        <p>Please Near Your NFC Tag to read</p>
+    </ion-card-content>
+
+    <ion-button (click)="closeModel()" expand="full">Cancel</ion-button>
+</ion-card>

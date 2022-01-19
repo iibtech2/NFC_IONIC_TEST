@@ -101,6 +101,28 @@
                 <ion-button expand="block" (click)="cancelWrite()" fill="outline" *ngIf="isWritingMode">Cancel Write</ion-button>
             </ion-list>
         </ion-slide>
-        <ion-slide> third </ion-slide>
+        <ion-slide>
+            <ion-list>
+                <ion-item (click)="mkreadonly()">
+                    <ion-avatar>
+                        <img src="../../assets/icon/lock.svg" />
+                    </ion-avatar>
+                    <ion-label>
+                        <h2><strong>Make read only</strong></h2>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item (click)="cleartag()">
+                    <ion-avatar>
+                        <img src="../../assets/icon/cleartag.svg" />
+                    </ion-avatar>
+                    <ion-label>
+                        <h2><strong>Erase tag</strong></h2>
+                    </ion-label>
+                </ion-item>
+
+
+            </ion-list>
+        </ion-slide>
     </ion-slides>
 </ion-content>
